@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellidos');
             $table->string('rol');
-            $table->string('estatus'); 
-            $table->string('fecha_alta'); 
-            $table->string('fecha_baja'); 
-            $table->string('fecha_modificacion'); 
+            $table->string('estatus');
+            $table->timestamp('fecha_alta')->nullable();
+            $table->timestamp('fecha_baja')->nullable();
+            $table->timestamp('fecha_modificacion')->nullable();
             $table->timestamps();
         });
     }

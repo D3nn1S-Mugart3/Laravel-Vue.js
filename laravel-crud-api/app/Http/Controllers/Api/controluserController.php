@@ -14,7 +14,7 @@ class controluserController extends Controller
         $controluser = Controluser::all();
 
         if ($controluser->isEmpty()) {
-            return response()->json(['message' => 'No hay estudiantes registrados'], 404);
+            return response()->json(['message' => 'No hay usuario registrados'], 404);
             // $data = [
             //     'message' => 'No hay estudiantes registrados', 
             //     'status' => 200
@@ -25,7 +25,8 @@ class controluserController extends Controller
         return response()->json($controluser, 200);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'nombre' => 'required',
             'apellidos' => 'required',
@@ -39,7 +40,7 @@ class controluserController extends Controller
         //fails tiene como significado de que si falla va arrojar un mensaje de error
         if ($validator->fails()) {
             $data = [
-                'message' => 'No en la validación de los datos', 
+                'message' => 'No en la validación de los datos',
                 'errors' => $validator->errors(),
                 'status' => 400
             ];
@@ -216,11 +217,11 @@ class controluserController extends Controller
         if ($request->has('fecha_baja')) {
             $controluser->fecha_baja = $request->fecha_baja;
         }
-        
+
         if ($request->has('fecha_modificacion')) {
             $controluser->fecha_modificacion = $request->fecha_modificacion;
-        }        
-    
+        }
+
         $controluser->save();
 
         $data = [

@@ -20,4 +20,9 @@ class Controluser extends Model
         'fecha_baja',
         'fecha_modificacion'
     ];
+
+    public function loginCredentials()
+    {
+        return $this->hasOne(LoginCredentials::class, 'controluser_id');
+    }
 }
