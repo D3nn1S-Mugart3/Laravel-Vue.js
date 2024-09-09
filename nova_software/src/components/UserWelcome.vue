@@ -36,10 +36,10 @@
     </table>
 
     <!-- Modal de edición -->
-    <div v-if="showEditModal">
+    <div v-if="showEditModal" class="modal-overlay">
       <div>
-        <h3>Editar Usuario</h3>
         <form @submit.prevent="updateUser">
+          <h3>Editar Usuario</h3>
           <div>
             <label>Nombre:</label>
             <input v-model="editUserForm.nombre" type="text" />
